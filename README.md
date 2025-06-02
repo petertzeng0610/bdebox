@@ -6,7 +6,7 @@ https://www.notion.so/1dc79b0e629780a79020ff09fbf24f63?v=1dc79b0e629780f882e2000
 開案報告
 https://docs.google.com/presentation/d/14dwcxpwyrq7s_XSKj5pd9QjjtSDkCQro/edit?usp=sharing&ouid=102511007013160043426&rtpof=true&sd=true
 
-因為Notion方案到期，無法更新專案，故更新在EXCEL
+因為Notion方案到期，無法更新專案，故更新在EXCEL(從第四階段開始往這邊更新)
 https://docs.google.com/spreadsheets/d/1EB1LK64x2BIUvUFuy6u3SDln8h9s5sM95Ntu1fBw_Q0/edit?usp=sharing
 
 設計概念
