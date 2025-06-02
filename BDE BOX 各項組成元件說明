@@ -1,0 +1,65 @@
+BDE BOX 各項組成元件說明
+
+1. 組成BDE BOX 元件如下
+
+1.kickstart Server
+2.實體機器
+3.廠牌的Loadbalance VM
+4.BDE VM
+5.廠牌Loadbalance API
+6.WAF
+
+
+1.kickstart server 可以參閱此篇
+https://github.com/petertzeng0610/kickstart/blob/master/README.md?plain=1
+
+2.實體機器
+
+實體機器的硬體細節
+
+a.記憶體目前只有到64GB，如果之後要給BDE使用，就要再擴充，就要再擴充，BDE預設記憶體使用就是64G 8 Core需要將硬體記憶體提升，目前收到資訊是會再跟廠商要求。
+
+b.因為機器預設開機是UEFI介面，所以kickstart原生支援UEFI，如果有調整成為BIOS模式，記得要去看一下kickstart的設定檔案(目前是設計是兩個都有支援，但是後來改版成UEFI後，有可能需要再調整資料夾檔案細節，或者再做一台)
+
+c.硬碟目前提供4TB，有RAID卡，做RAID 1，接入實體鍵盤到機器上，預設開啟RAID要在開機UEFI時然後在這時間按CTRL + r，進入RAID卡編輯模式，如果之後有擴充硬碟空間，請記得也要修改kickstart的硬碟空間配置，目前是使用4T版本。
+
+d.前端介面port最面邊正前方最左邊第一個是console port，並且使用的console要挑選，目前遇到是使用console連接筆電，沒辦法使用筆電的鍵盤，反應給硬體廠商告知測試沒問題，可能是線的問題，所以這部分使用上要注意
+
+mac console方式
+
+先確認mac連接到的裝置名稱
+
+ls -ltr /dev/*usb*
+
+確認後會出現如下資訊
+
+/dev/tty.usbserial-A9533WAI
+
+連接指令(這台機器的console rate是192000)
+
+screen /dev/tty.usbserial-A9533WAI 192000
+
+3.原廠Loadbalance VM
+
+目前測試符合比較符合F5的廠牌為Radware，故目前先使用Radware的vm做
+Radware建置選概念如下
+實體port---> L2--->L3--->L7
+
+實體port，import完vm後，請在介面上新增三個虛擬interface
+mgmt
+port1
+port2
+虛擬port與實體port對應，請查閱這篇(用mac address去對)
+https://docs.google.com/spreadsheets/d/1EB1LK64x2BIUvUFuy6u3SDln8h9s5sM95Ntu1fBw_Q0/edit?gid=1656912517#gid=1656912517
+
+建立後，建置L2設定
+vlan，將環境的vlan建立，並確認vlan有對應到port，這樣才會通，預設的vlan 1跟2都不用異動
+
+接著建立L3設定
+建立IP
+建立interface ip，測試期間可以去ipam拿IP建立，到客戶環境，確認架構後，把相對應的port對應到的對端設備所使用的IP綁定在interface，並且確定對端的Gateway再將Gateway IP 設定上去。
+如果有需要使用ping，請記得將Gw的protocol新增icmp的
+
+最後就是建置Virtual Server
+
+
