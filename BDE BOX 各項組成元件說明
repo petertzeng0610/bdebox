@@ -47,8 +47,8 @@ Radware建置選概念如下
 
 實體port，import完vm後，請在介面上新增三個虛擬interface
 mgmt
-port1
-port2
+port1 與客戶端＆後端Origin使用
+port2 使用bridge mode 與內部BDE資料互通收集資料用
 虛擬port與實體port對應，請查閱這篇(用mac address去對)
 https://docs.google.com/spreadsheets/d/1EB1LK64x2BIUvUFuy6u3SDln8h9s5sM95Ntu1fBw_Q0/edit?gid=1656912517#gid=1656912517
 
@@ -62,4 +62,18 @@ vlan，將環境的vlan建立，並確認vlan有對應到port，這樣才會通�
 
 最後就是建置Virtual Server
 
+4.BDE的VM
+目前設計只有兩個interface
+interface 1  進去機器ssh or到internet
+interface 2  使用bridge mode 收集 Radware or 之後新增其他廠牌Loadbalance的log
 
+5.廠牌的Loadbalance API
+
+目前Radware的原廠API文件不好閱讀，且沒有說明使用是要用什麼方式呼叫，故建立一個API Server，讓開發者了解會使用到的API有哪些
+
+目前API文件連結
+
+http://10.168.10.102/ 
+
+6. WAF
+Radware原廠告知預設的Policy確認後目前都不用異動，所以初期只有on and off選項，開發者只要去觸發enable waf or deisable waf 即可
