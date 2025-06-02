@@ -1,0 +1,183 @@
+目前Radware的原廠API文件說明非常簡略，故要使用前請閱讀這篇
+
+1.因為原廠提供的API文件難以閱讀，加上裡面參數眾多，協助建置API Server，幫助開發比較快速可以了解API使用＆將會使用到的API部件都新增在API Server
+另外是Radware的API並非使用json方式呼叫，是使用curl，並且只能帶明碼的帳號密碼，因這個問題，協助修改成，把帳號密碼轉換成base 64，並使用curl方式呼叫，測試OK
+範例已經加入每個api 文件內容
+
+curl -k -H ""Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj"" -H ""Content-Type: application/json"" -d '{
+""VirtServerIndex"":""10.168.10.151"",
+""service_vip"":""10.168.10.151"",
+""service_app"":7,
+""service_vport"":443,
+""service_protocol"":3,
+""service_group"":2,
+""service_description"":"""",
+""service_vip_version"":1,
+""https_ssl_offload"":1,
+""service_host_cert"":1,
+""https_ssl_cert"":""twister5.com.tw"",
+""service_rport"":443,
+""service_group_new"":1,
+""service_group_metric"":2,
+""service_group_hc"":""http"",
+""service_group_version"":1,
+""service_pbind_lb"":2,
+""service_pbind_type"":3,
+""http2_policy_type"":1,
+""service_websocket"":1,
+""service_cnat_v4_mask"":""255.255.255.255"",
+""service_cnat_v6_prfx"":128
+}' https://10.168.10.40/config/Application/10.168.10.151/"
+
+
+10.168.10.102的API文件使用如下
+
+1.一開始要到介面上的Authorize先輸入該Radware設備的帳號密碼，要將帳號密碼轉成API可用的Base64，設定好後會直接套用到底下所有API文件內，組裝好API後就可以直接測試用
+2.預設API呼叫的IP寫10.103.x只是參考用，實際要改成該台設備的管理IP(MGMT)改成該設備管理IP後，即可測試呼叫。
+3.原廠文件因為格式閱讀不好閱讀，所以有新增API，請到10.168.10.102這台API Server的該目錄底下修改Json檔案(要修改前，請切記要先備份原始檔案，有時候改完會噴錯，還原會比較快!!!!!!)
+/var/www/swagger-UI/swagger.json
+
+目前如果看得懂json的話，可以直接新增，如果看不懂的話，可以將json內容貼在Cursor，請Cursor內的AI幫你新增，目前測試告訴AI的Prompt如下(這一段告訴AI，並且下面將原廠文件的內容全部貼上去，範例如下）
+
+後續只要把中文敘述留著，底下的原廠API文件說明更換成你要新增的API即可，AI會幫你修改，修改後確認沒有問題，請再把改好的Json複製過去。
+
+
+  目前針對這隻json，我想新增以下原始api文件內容，請幫我依照這隻json格式與內容方式，保留原本檔案內容，並把原始的api文件內容往下新增在此json檔案內
+
+  以下為原始api文件內容
+
+
+  Field Name
+  Application
+  Table Key
+  VirtServerIndex: integer
+  
+  View Table (HTTP GET)
+  https://192.168.1.1/config/Application
+  
+  View Table Element (HTTP GET)
+  https://192.168.1.1/config/Application/< Indx>
+  
+  Edit Table Element (HTTP PUT)
+  https://192.168.1.1/config/Application/< Indx>
+  
+  {
+  "VirtServerIndex":"string"
+  "service_description":"string"
+  "service_vip_version":"integer"
+  "service_vip":"string"
+  "service_app":"integer"
+  "service_vport":"integer"
+  "service_protocol":"integer"
+  "service_group":"string"
+  "service_group_version":"integer"
+  "service_group_metric":"integer"
+  "service_group_hc":"string"
+  "service_http_s_host":"string"
+  "service_group_http_path":"string"
+  "group_rserver_list":"inner array of elements" // {slbNewCfgEnhRealServerIndex:string, slbNewCfgEnhRealServerIpVer:integer,slbNewCfgEnhRealServerIpv6Addr:string, slbNewCfgEnhRealServerIpAddr:string, rport:integer}
+  "service_pbind_type":"integer"
+  "service_pbind_lb":"integer"
+  "service_cookie_name":"string"
+  "https_ssl_offload":"integer"
+  "service_host_cert":"integer"
+  "https_ssl_cert":"string"
+  "service_http_s_fastview" : "integer" //does not exist in SA "service_http_s_mux":"integer"
+  "service_http_s_apm":"integer"
+  "service_cnat":"integer"
+  "service_cnat_v4":"string"
+  "service_cnat_v4_mask":"string"
+  "service_cnat_v6":"string"
+  "service_cnat_v6_prfx":"integer"
+  }
+  
+  Add Table Element (HTTP POST)
+  https://192.168.1.1/config/Application/< Indx>
+  
+  {
+  "VirtServerIndex":"string"
+  "service_description":"string"
+  "service_vip_version":"integer"
+  "service_vip":"string"
+  "service_app":"integer"
+  "service_vport":"integer"
+  "service_protocol":"integer"
+  "service_group":"string"
+  "service_group_version":"integer"
+  "service_group_metric":"integer"
+  "service_group_hc":"string"
+  "service_http_s_host":"string"
+  "service_group_http_path":"string"
+  "group_rserver_list":"inner array of elements" // {slbNewCfgEnhRealServerIndex:string, slbNewCfgEnhRealServerIpVer:integer,slbNewCfgEnhRealServerIpv6Addr:string, slbNewCfgEnhRealServerIpAddr:string, rport:integer}
+  "service_pbind_type":"integer"
+  "service_pbind_lb":"integer"
+  "service_cookie_name":"string"
+  "https_ssl_offload":"integer"
+  "service_host_cert":"integer"
+  "https_ssl_cert":"string"
+  "service_http_s_fastview" : "integer" //does not exist in SA "service_http_s_mux":"integer"
+  "service_http_s_apm":"integer"
+  "service_cnat":"integer"
+  "service_cnat_v4":"string"
+  "service_cnat_v4_mask":"string"
+  "service_cnat_v6":"string"
+  "service_cnat_v6_prfx":"integer"
+  }
+  
+  Description
+  "VirtServerIndex - Virtual Server Index.
+  
+  "service_description - Service Description.
+  
+  "service_vip_version - Service Virtual IP Version.
+  
+  "service_vip - Service Virtual IP.
+  
+  "service_app - Service Application.
+  
+  "service_vport - Service Port.
+  
+  "service_protocol - Service Protocol.
+  
+  "service_group - Service Group.
+  
+  "service_group_version - Service Group Version.
+  
+  "service_group_metric - Service Group Metric.
+  
+  "service_group_hc - Service Group Health Check.
+  
+  "service_http_s_host - Service HTTP Host.
+  
+  "service_group_http_path - Service Group HTTP Path.
+  
+  "group_rserver_list - Group Real Server List .
+  
+  "service_pbind_type - Service PBIND Type.
+  
+  "service_pbind_lb - Service PBIND LB.
+  
+  "service_cookie_name - Service Cookie Name.
+  
+  "https_ssl_offload - HTTPS SSL Offloading.
+  
+  "service_host_cert - Service Host Certificate.
+  
+  "https_ssl_cert - HTTPS SSL Certificate.
+  
+  "service_http_s_fastview - Service HTTP FASTVIEW (does not exist in SA).
+  
+  "service_http_s_mux - Service HTTP MUX.
+  
+  "service_http_s_apm - Service HTTP APM.
+  
+  "service_cnat - Service Client NAT enable/disable.
+  
+  "service_cnat_v4 - Service Client NAT IPv4 address.
+  
+  "service_cnat_v4_mask - Service Client NAT IPv4 mask.
+  
+  "service_cnat_v6 - Service Client NAT IPv6 address.
+  
+  "service_cnat_v6_prfx - Service Client NAT IPv6 prefix. 
+
