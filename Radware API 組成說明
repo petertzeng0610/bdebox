@@ -35,7 +35,7 @@ curl -k -H ""Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj"" -H ""Content-Type: 
 1.一開始要到介面上的Authorize先輸入該Radware設備的帳號密碼，要將帳號密碼轉成API可用的Base64，設定好後會直接套用到底下所有API文件內，組裝好API後就可以直接測試用
 2.預設API呼叫的IP寫10.103.x只是參考用，實際要改成該台設備的管理IP(MGMT)改成該設備管理IP後，即可測試呼叫。
 3.原廠文件因為格式閱讀不好閱讀，所以有新增API，請到10.168.10.102這台API Server的該目錄底下修改Json檔案(要修改前，請切記要先備份原始檔案，有時候改完會噴錯，還原會比較快!!!!!!)
-/var/www/swagger-UI/swagger.json
+/var/www/swagger-ui/swagger.json
 
 目前如果看得懂json的話，可以直接新增，如果看不懂的話，可以將json內容貼在Cursor，請Cursor內的AI幫你新增，目前測試告訴AI的Prompt如下(這一段告訴AI，並且下面將原廠文件的內容全部貼上去，範例如下）
 
