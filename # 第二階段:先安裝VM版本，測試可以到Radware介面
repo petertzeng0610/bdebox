@@ -1,0 +1,67 @@
+# 第二階段:先安裝VM版本，測試可以到Radware介面
+
+狀態: 已完成
+負責人: Tzeng peter
+任務類型: 建置, 測試
+難度: 中
+更新時間: 2025年5月21日 上午11:53
+
+## 任務描述
+
+手動測試實體機器，安裝qcow2的Radware Alteon
+
+## 子任務
+
+- [x]  手動安裝radware qcow2
+- [x]  匯入license
+
+Radware資訊
+
+https://10.101.101.4
+
+admin/1qaz@WSX3edc
+
+============
+
+進度
+
+5/16
+
+1.安裝Radware image，遇到kvm安裝時，要選擇匯入vm不能選擇create，會造成Radware安裝時會抓不到路徑問題
+
+2.匯入後，要點選import & edit，然後要把vcpu調整到4cpu，預設只有1vcpu，會無法開機到系統。
+
+3.調整完上述設定後，即可正常安裝Alteon，等待安裝過程完畢後即可開機，dhcp看環境開啟，預設要關閉
+
+4.網路卡設定
+
+interface type 選 Direct attachement
+
+Model 選virtio
+
+Radware預設設定
+
+PS: 特別說明
+
+目前小機房環境只有一個網段10.101.101.0/24，因為無法類似中和機房這樣的環境設定，所以只能暫時選用dhcp設定，等5/20討論機房的網路環境後，再依照預設設定建置mgmt IP。
+
+```makefile
+**admin預設密碼
+admin/admin
+修改密碼時，如果需要有特殊大寫，請按鍵盤左邊的shift，才會有效果，如果按右邊，會都是小寫。**
+
+mgmt ip
+  /cfg/sys/mmgmt/dhcp disable
+  /cfg/sys/mmgmt/addr <你的管理IP>
+  /cfg/sys/mmgmt/mask <你的子網路遮罩>
+  /cfg/sys/mmgmt/gw <你的閘道>
+
+  enable ssh
+  /cfg/sys/access/sshd/on
+  change password
+  /c/sys/access/user/admpw
+  enable https
+  /cfg/sys/access/https/https/e
+```
+
+4.已匯入License，一個月測試，廠商告知，換mgmt IP 不會影響License啟用
