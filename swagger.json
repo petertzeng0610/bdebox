@@ -1,0 +1,2364 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Radware Alteon API"
+  },
+  "host": "10.101.101.4",
+  "basePath": "/config",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Virtual Server",
+      "description": "API for managing virtual servers"
+    },
+    {
+      "name": "Virtual Service - First Part Table",
+      "description": "API for managing virtual services first part"
+    },
+    {
+      "name": "Virtual Service - Second Part Table",
+      "description": "API for managing virtual services Second part"
+    },
+    {
+      "name": "Virtual Service - Sixth Part Table",
+      "description": "API for managing virtual services Sixth part"
+    },
+    {
+      "name": "Virtual Service - Seventh Part Table",
+      "description": "API for managing virtual services Seventh part"
+    },
+    {
+      "name": "Group Table",
+      "description": "API for managing group tables"
+    },
+    {
+      "name": "FQDN Server Table",
+      "description": "API for managing FQDN server tables"
+    },
+    {
+      "name": "Quick Service Setup",
+      "description": "API for managing Quick Service Setup"
+    },
+    {
+      "name": "import SSL Certificate",
+      "description": "API for managing import SSL Certificate"
+    },
+    {
+      "name": "Real Server Table",
+      "description": "API for managing Real Server Table"
+    },
+    {
+      "name": "Real ServerPort Table",
+      "description": "API for managing Real ServerPort Table"
+    },
+    {
+      "name": "FltNewCfgTable",
+      "description": "API for managing FltNewCfgTable"
+    },
+    {
+      "name": "SSL Policy Table",
+      "description": "API for managing SSL Policy Table"
+    },
+    {
+      "name": "Apply Alteon Config",
+      "description": "API for managing Apply Alteon Config"
+    },
+    {
+      "name": "Save Alteon Config",
+      "description": "API for managing Save Alteon Config"
+    },
+    {
+      "name": "Security Web Application Table",
+      "description": "API for managing Security Web Application Table"
+    }
+  ],
+  "paths": {
+    "/SlbNewCfgEnhVirtServerTable": {
+      "get": {
+        "tags": [
+          "Virtual Server"
+        ],
+        "summary": "View Table",
+        "description": "Get full VirtServer table\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServerTable\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhVirtServerTable/{VirtServerIndex}": {
+      "get": {
+        "tags": [
+          "Virtual Server"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServerTable/{VirtServerIndex}\n```",
+        "parameters": [
+          {
+            "name": "VirtServerIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Virtual Server"
+        ],
+        "summary": "Edit Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhVirtServerTable/{VirtServerIndex}\n```",
+        "parameters": [
+          {
+            "name": "VirtServerIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VirtServer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Virtual Server"
+        ],
+        "summary": "Add Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhVirtServerTable/{VirtServerIndex}\n```",
+        "parameters": [
+          {
+            "name": "VirtServerIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VirtServer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Virtual Server"
+        ],
+        "summary": "Delete Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServerTable/{VirtServerIndex}\n```",
+        "parameters": [
+          {
+            "name": "VirtServerIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhVirtServicesTable": {
+      "get": {
+        "tags": [
+          "Virtual Service - First Part Table"
+        ],
+        "summary": "View Table",
+        "description": "Get full VirtServices table\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesTable\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhVirtServicesTable/{ServIndex}/{Index}": {
+      "get": {
+        "tags": [
+          "Virtual Service - First Part Table"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesTable/{ServIndex}/{Index}\n```",
+        "parameters": [
+          {
+            "name": "ServIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Virtual Service - First Part Table"
+        ],
+        "summary": "Edit Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhVirtServicesTable/{ServIndex}/{Index}\n```",
+        "parameters": [
+          {
+            "name": "ServIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Virtual Service - First Part Table"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Virtual Service - First Part Table"
+        ],
+        "summary": "Add Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhVirtServicesTable/{ServIndex}/{Index}\n```",
+        "parameters": [
+          {
+            "name": "ServIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Virtual Service - First Part Table"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Virtual Service - First Part Table"
+        ],
+        "summary": "Delete Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesTable/{ServIndex}/{Index}\n```",
+        "parameters": [
+          {
+            "name": "ServIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhVirtServicesSecondPartTable": {
+      "get": {
+        "tags": [
+          "Virtual Service - Second Part Table"
+        ],
+        "summary": "View Table",
+        "description": "Get full SlbNewCfgEnhVirtServicesSecondPartTable\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSecondPartTable\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhVirtServicesSecondPartTable/{ServSecondPartIndex}/{SecondPartIndex}": {
+      "get": {
+        "tags": [
+          "Virtual Service - Second Part Table"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSecondPartTable/{ServSecondPartIndex}/{SecondPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSecondPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SecondPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Virtual Service - Second Part Table"
+        ],
+        "summary": "Edit Table Element",
+        "description": "If create https，need call this API Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSecondPartTable/{ServSecondPartIndex}/{SecondPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSecondPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SecondPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhVirtServiceSecondPartTable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Virtual Service - Second Part Table"
+        ],
+        "summary": "Add Table Element",
+        "description": "If create https，need call this API Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSecondPartTable/{ServSecondPartIndex}/{SecondPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSecondPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SecondPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhVirtServiceSecondPartTable"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Virtual Service - Second Part Table"
+        ],
+        "summary": "Delete Table Element",
+        "description": "If create https，need call this API to delete Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSecondPartTable/{ServSecondPartIndex}/{SecondPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSecondPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SecondPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhVirtServicesSixthPartTable": {
+      "get": {
+        "tags": [
+          "Virtual Service - Sixth Part Table"
+        ],
+        "summary": "View Table",
+        "description": "Get full SlbNewCfgEnhVirtServicesSixthPartTable\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSixthPartTable\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhVirtServicesSixthPartTable/{ServSixthPartIndex}/{SixthPartIndex}": {
+      "get": {
+        "tags": [
+          "Virtual Service - Sixth Part Table"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSixthPartTable/{ServSixthPartIndex}/{SixthPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSixthPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SixthPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Virtual Service - Sixth Part Table"
+        ],
+        "summary": "Edit Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSixthPartTable/{ServSixthPartIndex}/{SixthPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSixthPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SixthPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhVirtServiceSixthPartTable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Virtual Service - Sixth Part Table"
+        ],
+        "summary": "Add Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSixthPartTable/{ServSixthPartIndex}/{SixthPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSixthPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SixthPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhVirtServiceSixthPartTable"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Virtual Service - Sixth Part Table"
+        ],
+        "summary": "Delete Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSixthPartTable/{ServSixthPartIndex}/{SixthPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSixthPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SixthPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhVirtServicesSeventhPartTable": {
+      "get": {
+        "tags": [
+          "Virtual Service - Seventh Part Table"
+        ],
+        "summary": "View Table",
+        "description": "Get full SlbNewCfgEnhVirtServicesSeventhPartTable\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSeventhPartTable\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhVirtServicesSeventhPartTable/{ServSeventhPartIndex}/{SeventhPartIndex}": {
+      "get": {
+        "tags": [
+          "Virtual Service - Seventh Part Table"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSeventhPartTable/{ServSeventhPartIndex}/{SeventhPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSeventhPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SeventhPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Virtual Service - Seventh Part Table"
+        ],
+        "summary": "Edit Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSeventhPartTable/{ServSeventhPartIndex}/{SeventhPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSeventhPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SeventhPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhVirtServiceSeventhPartTable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Virtual Service - Seventh Part Table"
+        ],
+        "summary": "Add Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSeventhPartTable/{ServSeventhPartIndex}/{SeventhPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSeventhPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SeventhPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhVirtServiceSeventhPartTable"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Virtual Service - Seventh Part Table"
+        ],
+        "summary": "Delete Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhVirtServicesSeventhPartTable/{ServSeventhPartIndex}/{SeventhPartIndex}\n```",
+        "parameters": [
+          {
+            "name": "ServSeventhPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SeventhPartIndex",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhGroupTable": {
+      "get": {
+        "tags": [
+          "Group Table"
+        ],
+        "summary": "View Table",
+        "description": "Get full SlbNewCfgEnhGroupTable\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhGroupTable\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SlbNewCfgEnhGroupTable"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhGroupTable/{Index}": {
+      "get": {
+        "tags": [
+          "Group Table"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhGroupTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhGroupTable"
+            }
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Group Table"
+        ],
+        "summary": "Edit Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhGroupTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhGroupTable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Group Table"
+        ],
+        "summary": "Add Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhGroupTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhGroupTable"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Group Table"
+        ],
+        "summary": "Delete Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhGroupTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgFQDNServerTable": {
+      "get": {
+        "tags": [
+          "FQDN Server Table"
+        ],
+        "summary": "View Table",
+        "description": "Get full SlbNewCfgFQDNServerTable\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgFQDNServerTable\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SlbNewCfgFQDNServerTable"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SlbNewCfgFQDNServerTable/{IdIndex}": {
+      "get": {
+        "tags": [
+          "FQDN Server Table"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgFQDNServerTable/{IdIndex}\n```",
+        "parameters": [
+          {
+            "name": "IdIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgFQDNServerTable"
+            }
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "FQDN Server Table"
+        ],
+        "summary": "Edit Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgFQDNServerTable/{IdIndex}\n```",
+        "parameters": [
+          {
+            "name": "IdIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgFQDNServerTable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "FQDN Server Table"
+        ],
+        "summary": "Add Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgFQDNServerTable/{IdIndex}\n```",
+        "parameters": [
+          {
+            "name": "IdIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgFQDNServerTable"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "FQDN Server Table"
+        ],
+        "summary": "Delete Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgFQDNServerTable/{IdIndex}\n```",
+        "parameters": [
+          {
+            "name": "IdIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/Application": {
+      "get": {
+        "tags": [
+          "Quick Service Setup"
+        ],
+        "summary": "View Table",
+        "description": "Get full Application\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/Application\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/Application/{VirtServerIndex}": {
+      "get": {
+        "tags": [
+          "Quick Service Setup"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/Application/{VirtServerIndex}\n```",
+        "parameters": [
+          {
+            "name": "VirtServerIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Quick Service Setup"
+        ],
+        "summary": "Edit Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/Application/{VirtServerIndex}\n```",
+        "parameters": [
+          {
+            "name": "VirtServerIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Quick Service Setup"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Quick Service Setup"
+        ],
+        "summary": "Add Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/Application/{VirtServerIndex}\n```",
+        "parameters": [
+          {
+            "name": "VirtServerIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Quick Service Setup"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Quick Service Setup"
+        ],
+        "summary": "Delete Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/Application/{VirtServerIndex}\n```",
+        "parameters": [
+          {
+            "name": "VirtServerIndex",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/importSSL": {
+      "post": {
+        "tags": [
+          "import SSL Certificate"
+        ],
+        "summary": "import SSL Certificate Cert & Key",
+        "description": "import SSL Certificate Cert & Key\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/sslcertimport?id=key2&type=key&passphrase=6666&src=txt\n```",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "svcrt",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "passphrase",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "src",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "svcrt or key choise one",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "ok": {
+            "description": "200 OK - The request has succeeded"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhRealServerTable": {
+      "get": {
+        "tags": [
+          "Real Server Table"
+        ],
+        "summary": "View Table",
+        "description": "Get full SlbNewCfgEnhRealServerTable\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhRealServerTable\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SlbNewCfgEnhRealServerTable"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhRealServerTable/{Index}": {
+      "get": {
+        "tags": [
+          "Real Server Table"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhRealServerTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhRealServerTable"
+            }
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Real Server Table"
+        ],
+        "summary": "Edit Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhRealServerTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhRealServerTable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Real Server Table"
+        ],
+        "summary": "Add Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhRealServerTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhRealServerTable"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Real Server Table"
+        ],
+        "summary": "Delete Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhRealServerTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhRealServPortTable": {
+      "get": {
+        "tags": [
+          "Real ServerPort Table"
+        ],
+        "summary": "View Table",
+        "description": "Get full SlbNewCfgEnhRealServerTable\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhRealServPortTable\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SlbNewCfgEnhRealServPortTable"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SlbNewCfgEnhRealServPortTable/{Index}": {
+      "get": {
+        "tags": [
+          "Real ServerPort Table"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhRealServPortTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhRealServPortTable"
+            }
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Real ServerPort Table"
+        ],
+        "summary": "Edit Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhRealServPortTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhRealServPortTable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Real ServerPort Table"
+        ],
+        "summary": "Add Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewCfgEnhRealServPortTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewCfgEnhRealServPortTable"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Real ServerPort Table"
+        ],
+        "summary": "Delete Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewCfgEnhRealServPortTable/{Index}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/FltNewCfgTable": {
+      "get": {
+        "summary": "Get Filter Table",
+        "tags": ["FltNewCfgTable"],
+        "responses": {
+          "200": {
+            "description": "Response 200 OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/FltNewCfgTable" }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add Filter Table Element",
+        "tags": ["FltNewCfgTable"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/FltNewCfgTable" }
+          }
+        ],
+        "responses": { "200": { "description": "Add Success" } }
+      }
+    },
+    "/FltNewCfgTable/{Indx}": {
+      "get": {
+        "summary": "Get Filter Table",
+        "tags": ["FltNewCfgTable"],
+        "parameters": [
+          {
+            "name": "Indx",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": "Filter Table Index"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response 200 OK",
+            "schema": { "$ref": "#/definitions/FltNewCfgTable" }
+          }
+        }
+      },
+      "put": {
+        "summary": "Edit Filter Table",
+        "tags": ["FltNewCfgTable"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/FltNewCfgTable" }
+          }
+        ],
+        "responses": { "200": { "description": "Response 200 OK" } }
+      },
+      "delete": {
+        "summary": "Delete Filter Table",
+        "tags": ["FltNewCfgTable"],
+        "parameters": [
+          {
+            "name": "Indx",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "200": { "description": "Delete Success" } }
+      }
+    },
+    "/config/SlbNewSslCfgSSLPolTable/< NameIdIndex >": {
+      "get": {
+        "summary": "View Table Element",
+        "tags": ["SSL Policy Table"],
+        "responses": {
+          "200": {
+            "description": "Response 200 OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/SSL Policy Table" }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add Table Element",
+        "tags": ["SSL Policy Table"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/SSL Policy Table" }
+          }
+        ],
+        "responses": { "200": { "description": "Add Success" } }
+      },
+      "put": {
+        "summary": "Edit Table Element",
+        "tags": ["SSL Policy Table"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/SSL Policy Table" }
+          }
+        ],
+        "responses": { "200": { "description": "Response 200 OK" } }
+      },
+      "delete": {
+        "summary": "Delete Table Element",
+        "tags": ["SSL Policy Table"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/SSL Policy Table" }
+          }
+        ],
+        "responses": { "200": { "description": "Delete Success" } }
+      }
+    },
+    "/SlbNewAppwallWebappsCfgTable": {
+      "get": {
+        "tags": [
+          "Security Web Application Table"
+        ],
+        "summary": "View Table",
+        "description": "Get full SlbNewAppwallWebappsCfgTable\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewAppwallWebappsCfgTable\n```",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SlbNewAppwallWebappsCfgTable"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SlbNewAppwallWebappsCfgTable/{WebappId}": {
+      "get": {
+        "tags": [
+          "Security Web Application Table"
+        ],
+        "summary": "View Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewAppwallWebappsCfgTable/{WebappId}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/SlbNewAppwallWebappsCfgTable"
+            }
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Security Web Application Table"
+        ],
+        "summary": "Edit Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X PUT -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewAppwallWebappsCfgTable/{WebappId}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewAppwallWebappsCfgTable"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Security Web Application Table"
+        ],
+        "summary": "Add Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X POST -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" -H \"Content-Type: application/json\" -d '{...}' https://10.101.101.4/config/SlbNewAppwallWebappsCfgTable/{WebappId}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SlbNewAppwallWebappsCfgTable"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Security Web Application Table"
+        ],
+        "summary": "Delete Table Element",
+        "description": "Example curl:\n```bash\ncurl -k -X DELETE -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config/SlbNewAppwallWebappsCfgTable/{WebappId}\n```",
+        "parameters": [
+          {
+            "name": "Index",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successfully"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/config?action=apply": {
+      "post": {
+        "tags": [
+          "Apply Alteon Config"
+        ],
+        "summary": "Apply Alteon Config",
+        "description": "Apply Alteon Config\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config?action=apply\n```",
+        "responses": {
+          "ok": {
+            "description": "status : ok"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Apply Alteon Config"
+        ],
+        "summary": "Apply Alteon apply status",
+        "description": "Apply Alteon apply status\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/monitor?prop=agApplyPending\n```",
+        "responses": {
+          "ok": {
+            "description": "agApplyPending : 2 or 3  value 2 means apply is required value 3 means no apply is requierd"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Apply Alteon Config"
+        ],
+        "summary": "Apply Alteon apply process check method used !!!!GET!!!,Because same get method can not writing in swagger API Doc . ",
+        "description": "Apply Alteon apply process check\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config?prop=agApplyConfig\n```",
+        "responses": {
+          "ok": {
+            "description": "agApplyConfig : 1 or 3 or 4 or 5 or 6   value 1 means no apply is in process, idle status. value 3  means the apply is in progress. value 4 means the apply is completed successfully value 5 means the apply process failed. value 6 means the apply is completed successfully, with a warning "
+          }
+        }
+      }
+    },
+    "/config?action=save": {
+      "post": {
+        "tags": [
+          "Save Alteon Config"
+        ],
+        "summary": "Save Alteon Config",
+        "description": "Save Alteon Config\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config?action=save\n```",
+        "responses": {
+          "ok": {
+            "description": "status : ok"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Save Alteon Config"
+        ],
+        "summary": "Save Alteon config process check",
+        "description": "Save Alteon config process check\n\nExample curl:\n```bash\ncurl -k -H \"Authorization: Basic YWRtaW46MXFhejJ3c3gzZWRj\" https://10.101.101.4/config?prop=agSaveConfig\n```",
+        "responses": {
+          "ok": {
+            "description": "agSaveConfig : 1 or 2 or 3 or 4 or 5  value 1 means save to flash memory value 2 means idle no save operation in progress value 3  inprogress the save operation is in progress value 4 is complete the last save operation completed. value 5 faild the last save operation failed"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "VirtServer": {
+      "type": "object",
+      "properties": {
+        "VirtServerIpAddress": {
+          "type": "string",
+          "description": "IP address of the virtual server."
+        },
+        "VirtServerState": {
+          "type": "integer",
+          "enum": [2],
+          "description": "Enable or disable the virtual server. Values: 2=enabled, 3=disabled."
+        },
+        "VirtServerWeight": {
+          "type": "integer",
+          "enum": [1],
+          "description": "The virtual server Global SLB weight."
+        },
+        "VirtServerVname": {
+          "type": "string",
+          "description": "The name of the virtual server."
+        },
+        "VirtServerIpVer": {
+          "type": "integer",
+          "enum": [1],
+          "description": "IP version. Values: 1=IPv4, 2=IPv6."
+        }
+      }
+    },
+    "Virtual Service - First Part Table": {
+      "type": "object",
+      "properties": {
+        "VirtPort": {
+          "type": "integer",
+          "description": "The layer4 virtual port number of the service. It can be either 1 for IP or between 9 to 65534. Virt port numbers 2 to 9 are invalid."
+        },
+        "RealPort": {
+          "type": "integer",
+          "description": "The layer4 real port number of the service. It can be either 0 for multiple real ports or 1 for IP service or between 5 to 65534. Ports 2 to 5 are invalid."
+        }
+        }
+      },
+    "SlbNewCfgEnhVirtServiceSecondPartTable": {
+      "type": "object",
+      "properties": {
+        "ConnmgtStatus": {
+          "type": "integer",
+          "enum": [0],
+          "description": "Connection management configuration for HTTP traffic (enable/disable/pooling) [default: disable]"
+        },
+        "ConnmgtTimeout": {
+          "type": "integer",
+          "enum": [10],
+          "description": "Connection management server side connection idle timeout in minutes [0-32768] [default: 10]"
+        },
+        "SSLpol": {
+          "type": "string",
+          "description": "SSL policy name associated with this virtual service. Set none to delete entry"
+        },
+        "ServCert": {
+          "type": "string",
+          "description": "Server certificate name associated with this virtual service"
+        }
+      }
+    },
+    "SlbNewCfgEnhVirtServiceSixthPartTable": {
+      "type": "object",
+      "properties": {
+        "XForwardedFor": {
+          "type": "integer",
+          "enum": [1],
+          "description": "Enable/disable X-Forwarded-For for proxy mode. Values: 1=enabled, 2=disabled,"
+        },
+        "HttpRedir": {
+          "type": "integer",
+          "description": "Enable/disable HTTP/HTTPS redirect for GSLB. Values: 1=enabled, 2=disabled, 2147483647=unsupported."
+        }
+
+      }
+    },
+    "SlbNewCfgEnhVirtServiceSeventhPartTable": {
+      "type": "object",
+      "properties": {
+        "AppwallWebappId": {
+          "type": "string",
+          "description": "This object ID allows configuring the web security ID."
+        },
+        "Http2": {
+          "type": "string",
+          "description": "Http2 policy name associated with this virtual service."
+        }
+      }
+    },
+    "SlbNewCfgEnhGroupTable": {
+      "type": "object",
+      "properties": {
+        "AddServer": {
+          "type": "string",
+          "description": "The real server to be added to the group."
+        },
+        "RemoveServer": {
+          "type": "string",
+          "description": "The real server to be removed from the group."
+        },
+        "Metric": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the real server group."
+        },
+        "RealThreshold": {
+          "type": "integer",
+          "enum": [0],
+          "description": "固定值 0"
+        },
+        "VipHealthCheck": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "IdsState": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "IdsPort": {
+          "type": "integer",
+          "enum": [0],
+          "description": "固定值 0"
+        },
+        "IdsFlood": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "MinmissHash": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "Rmetric": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "OperatorAccess": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "Slowstart": {
+          "type": "integer",
+          "enum": [0],
+          "description": "固定值 0"
+        },
+        "MinThreshold": {
+          "type": "integer",
+          "enum": [0],
+          "description": "固定值 0"
+        },
+        "MaxThreshold": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "IpVer": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "HealthID": {
+          "type": "string",
+          "description": "NoCheck or http or https or tcp "
+        },
+        "Type": {
+          "type": "integer",
+          "enum": [0],
+          "description": "固定值 0"
+        },
+        "SecType": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        }
+      }
+    },
+    "SlbNewCfgFQDNServerTable": {
+      "type": "object",
+      "properties": {
+        "FQDN": {
+          "type": "string",
+          "description": "The Fqdn field of the server."
+        },
+        "IpVers": {
+          "type": "integer",
+          "description": "The type of IP address. Values: 1=ipv4, 2=ipv6, 2147483647=unsupported."
+        },
+        "TTL": {
+          "type": "integer",
+          "enum": [5],
+          "description": "固定值 5"
+        },
+        "Group": {
+          "type": "string",
+          "description": "FQDN Server Group Id."
+        },
+        "Templ": {
+          "type": "string",
+          "description": "Template Real Server Id."
+        },
+        "State": {
+          "type": "integer",
+          "enum": [2],
+          "description": "Enable or disable the server. Values: 2=enabled, 3=disabled"
+        }
+      }
+    },
+    "Quick Service Setup": {
+      "type": "object",
+      "properties": {
+        "VirtServerIndex": {
+          "type": "string",
+          "description": "Virtual Server Index."
+        },
+        "service_description": {
+          "type": "string",
+          "description": "Service Description."
+        },
+        "service_vip_version": {
+          "type": "integer",
+          "description": "Service Virtual IP Version."
+        },
+        "service_vip": {
+          "type": "string",
+          "description": "Service Virtual IP."
+        },
+        "service_app": {
+          "type": "integer",
+          "description": "Service Application."
+        },
+        "service_vport": {
+          "type": "integer",
+          "description": "Service Port."
+        },
+        "service_protocol": {
+          "type": "integer",
+          "description": "Service Protocol."
+        },
+        "service_group": {
+          "type": "string",
+          "description": "Service Group."
+        },
+        "service_group_version": {
+          "type": "integer",
+          "description": "Service Group Version."
+        },
+        "service_group_metric": {
+          "type": "integer",
+          "description": "Service Group Metric."
+        },
+        "service_group_hc": {
+          "type": "string",
+          "description": "Service Group Health Check."
+        },
+        "service_http_s_host": {
+          "type": "string",
+          "description": "Service HTTP Host."
+        },
+        "service_group_http_path": {
+          "type": "string",
+          "description": "Service Group HTTP Path."
+        },
+        "group_rserver_list": {
+          "type": "string",
+          "description": "Group Real Server List."
+        },
+        "service_pbind_type": {
+          "type": "integer",
+          "description": "Service PBIND Type."
+        },
+        "service_pbind_lb": {
+          "type": "integer",
+          "description": "Service PBIND LB."
+        },
+        "service_cookie_name": {
+          "type": "string",
+          "description": "Service Cookie Name."
+        },
+        "https_ssl_offload": {
+          "type": "integer",
+          "description": "HTTPS SSL Offloading."
+        },
+        "service_host_cert": {
+          "type": "integer",
+          "description": "Service Host Certificate."
+        },
+        "https_ssl_cert": {
+          "type": "string",
+          "description": "HTTPS SSL Certificate."
+        },
+        "service_http_s_fastview": {
+          "type": "integer",
+          "description": "Service HTTP FASTVIEW (does not exist in SA)."
+        },
+        "service_http_s_mux": {
+          "type": "integer",
+          "description": "Service HTTP MUX."
+        },
+        "service_http_s_apm": {
+          "type": "integer",
+          "description": "Service HTTP APM."
+        },
+        "service_cnat": {
+          "type": "integer",
+          "description": "Service Client NAT enable/disable."
+        },
+        "service_cnat_v4": {
+          "type": "string",
+          "description": "Service Client NAT IPv4 address."
+        },
+        "service_cnat_v4_mask": {
+          "type": "string",
+          "description": "Service Client NAT IPv4 mask."
+        },
+        "service_cnat_v6": {
+          "type": "string",
+          "description": "Service Client NAT IPv6 address."
+        },
+        "service_cnat_v6_prfx": {
+          "type": "integer",
+          "description": "Service Client NAT IPv6 prefix."
+        }
+      }
+    },
+    "SlbNewCfgEnhRealServerTable": {
+      "type": "object",
+      "properties": {
+        "IpAddr": {
+          "type": "string"
+        },
+        "Weight": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "TimeOut": {
+          "type": "integer",
+          "enum": [10],
+          "description": "固定值 10"
+        },
+        "State": {
+        "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "Type": {
+         "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Cookie": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "ExcludeStr": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "IpVer": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "SecType": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "DcType": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        }
+      }
+    },
+    "SlbNewCfgEnhRealServPortTable": {
+      "type": "object",
+      "properties": {
+        "Index": {
+          "type": "string"
+        },
+        "AddServer": {
+          "type": "string"
+        }
+      }
+    },
+    "SlbNewAppwallWebappsCfgTable": {
+      "type": "object",
+      "properties": {
+        "WebappName": {
+          "type": "string"
+        },
+        "WebappEnable": {
+          "type": "integer",
+          "enum": [1],
+          "description": "0=disable 1= enable"
+        },
+        "WebappEnableWaf": {
+          "type": "integer",
+          "enum": [1],
+          "description": "0=disable 1=enable"
+        }
+      }
+    },
+    "FltNewCfgTable": {
+      "type": "object",
+      "properties": {
+        "Indx": { "type": "integer", "format": "int32", "description": "Filtering Table Index" },
+        "SrcIp": { "type": "string", "description": "Source IP" },
+        "SrcIpMask": { "type": "string", "description": "Source IP Mask" },
+        "DstIp": { "type": "string", "description": "Destination IP" },
+        "DstIpMask": { "type": "string", "description": "Destination IP Mask" },
+        "Protocol": { "type": "integer", "description": "Protocol" },
+        "RangeHighSrcPort": { "type": "integer" },
+        "RangeLowSrcPort": { "type": "integer" },
+        "RangeLowDstPort": { "type": "integer" },
+        "RangeHighDstPort": { "type": "integer" },
+        "Action": { "type": "integer", "description": "1=allow 2=deny 3=redirect ..." },
+        "RedirPort": { "type": "integer" },
+        "RedirGroup": { "type": "integer" },
+        "Log": { "type": "integer", "description": "1=enabled 2=disabled ..." },
+        "Vlangrp": { "type": "integer" }
+      }
+    },
+    "SSL Policy Table": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "policy name"
+        },
+        "CipherName": {
+          "type": "integer",
+          "enum": [19],
+          "description": "固定值 19"
+        },
+        "FESslv3Version": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "FETls10Version": {
+        "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "FETls11Version": {
+         "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+       "FETls12Version": {
+         "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "FETls13Version": {
+         "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "DestPort": {
+          "type": "integer",
+          "enum": [443],
+          "description": "固定值 443"
+        },
+        "Besni": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "AdminStatus": {
+          "type": "integer",
+          "enum": [1],
+          "description": "value 1 = Enable, value 2 = Disable."
+        },
+        "BESslv3Version": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "BESslv10Version": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "BESslv11Version": {
+          "type": "integer",
+          "enum": [2],
+          "description": "固定值 2"
+        },
+        "BESslv12Version": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        },
+        "BESslv13Version": {
+          "type": "integer",
+          "enum": [1],
+          "description": "固定值 1"
+        }
+      }
+    } 
+  }
+}
